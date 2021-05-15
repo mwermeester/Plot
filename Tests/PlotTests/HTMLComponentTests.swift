@@ -399,6 +399,16 @@ final class HTMLComponentTests: XCTestCase {
         let html = Image("image.png").render()
         XCTAssertEqual(html, #"<img src="image.png"/>"#)
     }
+    
+    func testImageWithTitleAndWithoutDescription() {
+        let html = Image(url: "image.png", title: "My image").render()
+        XCTAssertEqual(html, #"<img src="image.png" title="My image"/>"#)
+    }
+    
+    func testImageWithTitleAndDescription() {
+        let html = Image(url: "image.png", description: "My image", title: "My image").render()
+        XCTAssertEqual(html, #"<img src="image.png" alt="My image" title="My image"/>"#)
+    }
 
     func testLinkRelationshipAndTarget() {
         let html = Div {

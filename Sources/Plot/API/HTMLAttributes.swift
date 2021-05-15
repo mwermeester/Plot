@@ -414,6 +414,12 @@ public extension Attribute where Context == HTML.ImageContext {
     static func alt(_ text: String) -> Attribute {
         Attribute(name: "alt", value: text)
     }
+    
+    /// Assign a title to the image.
+    /// - parameter text: The title to use.
+    static func title(_ text: String) -> Attribute {
+        Attribute(name: "title", value: text)
+    }
 }
 
 // MARK: - Accessibility
